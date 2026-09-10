@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head>
+<html lang="ar" dir="rtl">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نجاة كعك ورقة زغوان | Najet Zaghouan Artisanal Pastry</title>
@@ -791,7 +792,6 @@
             }
         }
 
-        /* Botanical illustration inspired by the supplied vintage botanical plate — flat 2D ink + watercolor look */
         .botanical-frame {
             position: fixed;
             inset: 0;
@@ -820,7 +820,6 @@
         .stamen { fill:none; stroke:#c59d20; stroke-width:.48; stroke-linecap:round; }
         .anther { fill:#bd931b; }
         @media (max-width:768px) { .botanical-frame { opacity:.28; } }
-
 
         /* Order steps */
         .order-steps-section {
@@ -1066,10 +1065,12 @@
                 height: 36px;
             }
         }
-
     </style>
 </head>
 <body>
+
+    <!-- Notification Toast -->
+    <div class="toast-notification" id="toast"></div>
 
     <!-- Animated contact information bar -->
     <section class="contact-ticker" aria-label="معلومات التواصل">
@@ -1089,7 +1090,6 @@
 
                 <span class="contact-divider" aria-hidden="true"></span>
 
-                <!-- Duplicate items for a seamless ticker feel -->
                 <div class="contact-item" aria-hidden="true">
                     <span class="contact-icon">☎</span>
                     <span>الهاتف: <strong>54443611</strong></span>
@@ -1105,8 +1105,7 @@
         </div>
     </section>
 
-
-    <!-- Detailed flat botanical corner branches based on the supplied vintage flower plate -->
+    <!-- Botanical Frame -->
     <div class="botanical-frame" aria-hidden="true">
       <svg viewBox="0 0 1440 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -1140,7 +1139,7 @@
           </g>
         </defs>
 
-        <!-- Left botanical spray: one continuous natural stem rising from the lower corner -->
+        <!-- Left botanical spray -->
         <g>
           <path class="botanical-stem main" d="M-55 1040 C18 962 46 892 74 812 C103 729 116 667 151 601 C191 526 247 480 278 406 C309 332 302 267 340 202 C369 151 414 103 474 55"></path>
           <path class="botanical-stem branch" d="M77 813 C34 765 9 714 15 658 C18 623 31 591 54 564"></path>
@@ -1185,7 +1184,7 @@
           <g transform="translate(405 119) rotate(-12)"><use href="#bud"></use></g>
         </g>
 
-        <!-- Right spray, deliberately different and less symmetrical, like a pressed botanical specimen -->
+        <!-- Right spray -->
         <g>
           <path class="botanical-stem main" d="M1495 1040 C1422 963 1391 888 1364 806 C1335 719 1321 663 1288 598 C1251 524 1196 478 1166 405 C1135 331 1142 266 1105 201 C1075 149 1031 101 970 55"></path>
           <path class="botanical-stem branch" d="M1364 806 C1406 759 1432 708 1426 654 C1423 621 1410 590 1388 563"></path>
@@ -1270,7 +1269,7 @@
             <article class="order-step">
                 <div class="order-step-number">2</div>
                 <h4>أكمل معلوماتك</h4>
-                <p>كتب الاسم ورقم الهاتف والعنوان عند إتمام الطلب لتأكيد التوصيل.</p>
+                <p>اكتب الاسم ورقم الهاتف والعنوان عند إتمام الطلب لتأكيد التوصيل.</p>
             </article>
             <article class="order-step">
                 <div class="order-step-number">3</div>
@@ -1312,96 +1311,92 @@
     <!-- Products Grid Container -->
     <div class="container">
         <div class="products-grid" id="products-grid">
-                    <div class="cake-card" id="card-1789069437583">
-                        <div class="cake-img-wrapper" onclick="changeImage(1789069437583, 1)">
-                            
-                        <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069437583, -1)">❯</button>
-                        <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069437583, 1)">❮</button>
-                    
-                                                  <img src="images/photo1.jpeg" class="thumbnail-img active" onclick="event.stopPropagation(); setImageIndex(1789069437583, 0)">
-                        </div>
-                        
-                        <div class="thumbnail-bar">
-                            <img src="images/photo1.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 0)">
-                            <img src="images/photo2.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 1)">
-                            <img src="images/photo3.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 2)">
-                            <img src="images/photo4.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 3)">
-                        </div>
-                        <div class="cake-details">
-                            <h3 class="cake-title">كعك ورقة بالنسري</h3>
-                            <p class="cake-desc">كعك ورقة تقليدي فاخر بماء النسري الطبيعي الأصيل مع أصل الخبرة والتراث.</p>
-                            <div class="price-tag">45.00 د.ت <span>/ كغ</span></div>
-                            
-                            <div class="weight-container">
-                                <div class="weight-header">
-                                    <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
-                                    <span class="selected-weight-badge" id="badge-1789069437583">1 كغ</span>
-                                </div>
-                                <div class="weight-pills">
-                                    <button class="weight-pill " onclick="setWeight(1789069437583, 0.5, 45)">0.5 كغ</button>
-                                    <button class="weight-pill active" onclick="setWeight(1789069437583, 1, 45)">1 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069437583, 2, 45)">2 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069437583, 3, 45)">3 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069437583, 5, 45)">5 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069437583, 10, 45)">10 كغ</button>
-                                </div>
-                                <input type="range" class="weight-slider" id="slider-1789069437583" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069437583, this.value, 45)">
-                            </div>
-
-                            <div class="calculated-total">
-                                السعر الإجمالي: <span id="total-1789069437583">45.00</span> د.ت
-                            </div>
-
-                            <button class="btn-primary" onclick="addToCart(1789069437583)">إضافة إلى السلة</button>
-                            
-                        </div>
-                    </div>
-                
-                    <div class="cake-card" id="card-1789069478525">
-                        <div class="cake-img-wrapper" onclick="changeImage(1789069478525, 1)">
-                            
-                        <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069478525, -1)">❯</button>
-                        <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069478525, 1)">❮</button>
-                    
-                                                <img src="images/photo11.jpeg" class="thumbnail-img active" onclick="event.stopPropagation(); setImageIndex(1789069437583, 0)">
-                    </div>
-                    
-                    <div class="thumbnail-bar">
-                        <img src="images/photo11.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 0)">
-                        <img src="images/photo22.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 1)">
-                        <img src="images/photo33.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 2)">
-                        <img src="images/photo44.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 3)">
-                    </div>
-                        <div class="cake-details">
-                            <h3 class="cake-title">عش البلبل</h3>
-                            <p class="cake-desc">حلويات عش البلبل الفاخرة المحشوة بأجود أنواع الفستق والمكسرات المقرمشة.</p>
-                            <div class="price-tag">65.00 د.ت <span>/ كغ</span></div>
-                            
-                            <div class="weight-container">
-                                <div class="weight-header">
-                                    <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
-                                    <span class="selected-weight-badge" id="badge-1789069478525">1 كغ</span>
-                                </div>
-                                <div class="weight-pills">
-                                    <button class="weight-pill " onclick="setWeight(1789069478525, 0.5, 65)">0.5 كغ</button>
-                                    <button class="weight-pill active" onclick="setWeight(1789069478525, 1, 65)">1 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069478525, 2, 65)">2 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069478525, 3, 65)">3 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069478525, 5, 65)">5 كغ</button>
-                                    <button class="weight-pill " onclick="setWeight(1789069478525, 10, 65)">10 كغ</button>
-                                </div>
-                                <input type="range" class="weight-slider" id="slider-1789069478525" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069478525, this.value, 65)">
-                            </div>
-
-                            <div class="calculated-total">
-                                السعر الإجمالي: <span id="total-1789069478525">65.00</span> د.ت
-                            </div>
-
-                            <button class="btn-primary" onclick="addToCart(1789069478525)">إضافة إلى السلة</button>
-                            
-                        </div>
-                    </div>
+            <!-- Product 1 -->
+            <div class="cake-card" id="card-1789069437583">
+                <div class="cake-img-wrapper" onclick="changeImage(1789069437583, 1)">
+                    <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069437583, -1)">❯</button>
+                    <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069437583, 1)">❮</button>
+                    <img src="images/photo1.jpeg" class="cake-img" id="img-1789069437583" alt="كعك ورقة بالنسري">
                 </div>
+                
+                <div class="thumbnail-bar">
+                    <img src="images/photo1.jpeg" class="thumbnail-img active" onclick="setImageIndex(1789069437583, 0)">
+                    <img src="images/photo2.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 1)">
+                    <img src="images/photo3.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 2)">
+                    <img src="images/photo4.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 3)">
+                </div>
+                <div class="cake-details">
+                    <h3 class="cake-title">كعك ورقة بالنسري</h3>
+                    <p class="cake-desc">كعك ورقة تقليدي فاخر بماء النسري الطبيعي الأصيل مع أصل الخبرة والتراث.</p>
+                    <div class="price-tag">45.00 د.ت <span>/ كغ</span></div>
+                    
+                    <div class="weight-container">
+                        <div class="weight-header">
+                            <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
+                            <span class="selected-weight-badge" id="badge-1789069437583">1 كغ</span>
+                        </div>
+                        <div class="weight-pills">
+                            <button class="weight-pill" onclick="setWeight(1789069437583, 0.5, 45)">0.5 كغ</button>
+                            <button class="weight-pill active" onclick="setWeight(1789069437583, 1, 45)">1 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069437583, 2, 45)">2 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069437583, 3, 45)">3 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069437583, 5, 45)">5 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069437583, 10, 45)">10 كغ</button>
+                        </div>
+                        <input type="range" class="weight-slider" id="slider-1789069437583" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069437583, this.value, 45)">
+                    </div>
+
+                    <div class="calculated-total">
+                        السعر الإجمالي: <span id="total-1789069437583">45.00</span> د.ت
+                    </div>
+
+                    <button class="btn-primary" onclick="addToCart(1789069437583)">إضافة إلى السلة</button>
+                </div>
+            </div>
+        
+            <!-- Product 2 -->
+            <div class="cake-card" id="card-1789069478525">
+                <div class="cake-img-wrapper" onclick="changeImage(1789069478525, 1)">
+                    <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069478525, -1)">❯</button>
+                    <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069478525, 1)">❮</button>
+                    <img src="images/photo11.jpeg" class="cake-img" id="img-1789069478525" alt="عش البلبل">
+                </div>
+            
+                <div class="thumbnail-bar">
+                    <img src="images/photo11.jpeg" class="thumbnail-img active" onclick="setImageIndex(1789069478525, 0)">
+                    <img src="images/photo22.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 1)">
+                    <img src="images/photo33.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 2)">
+                    <img src="images/photo44.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 3)">
+                </div>
+                <div class="cake-details">
+                    <h3 class="cake-title">عش البلبل</h3>
+                    <p class="cake-desc">حلويات عش البلبل الفاخرة المحشوة بأجود أنواع الفستق والمكسرات المقرمشة.</p>
+                    <div class="price-tag">65.00 د.ت <span>/ كغ</span></div>
+                    
+                    <div class="weight-container">
+                        <div class="weight-header">
+                            <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
+                            <span class="selected-weight-badge" id="badge-1789069478525">1 كغ</span>
+                        </div>
+                        <div class="weight-pills">
+                            <button class="weight-pill" onclick="setWeight(1789069478525, 0.5, 65)">0.5 كغ</button>
+                            <button class="weight-pill active" onclick="setWeight(1789069478525, 1, 65)">1 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069478525, 2, 65)">2 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069478525, 3, 65)">3 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069478525, 5, 65)">5 كغ</button>
+                            <button class="weight-pill" onclick="setWeight(1789069478525, 10, 65)">10 كغ</button>
+                        </div>
+                        <input type="range" class="weight-slider" id="slider-1789069478525" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069478525, this.value, 65)">
+                    </div>
+
+                    <div class="calculated-total">
+                        السعر الإجمالي: <span id="total-1789069478525">65.00</span> د.ت
+                    </div>
+
+                    <button class="btn-primary" onclick="addToCart(1789069478525)">إضافة إلى السلة</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1507,17 +1502,17 @@
 
         const defaultProducts = [
             {
-                id: 101,
+                id: 1789069437583,
                 name: "كعك ورقة بالنسري",
-                pricePerKg: 40,
-                images: ["image_c8ba43.jpg"],
+                pricePerKg: 45,
+                images: ["images/photo1.jpeg", "images/photo2.jpeg", "images/photo3.jpeg", "images/photo4.jpeg"],
                 description: "كعك ورقة تقليدي فاخر بماء النسري الطبيعي الأصيل مع أصل الخبرة والتراث."
             },
             {
-                id: 102,
+                id: 1789069478525,
                 name: "عش البلبل",
-                pricePerKg: 80,
-                images: ["image_c8ba78.jpg"],
+                pricePerKg: 65,
+                images: ["images/photo11.jpeg", "images/photo22.jpeg", "images/photo33.jpeg", "images/photo44.jpeg"],
                 description: "حلويات عش البلبل الفاخرة المحشوة بأجود أنواع الفستق والمكسرات المقرمشة."
             }
         ];
@@ -1603,8 +1598,8 @@
 
                 if (showControls) {
                     navButtons = `
-                        <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(${product.id}, -1)">❮</button>
-                        <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(${product.id}, 1)">❯</button>
+                        <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(${product.id}, -1)">❯</button>
+                        <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(${product.id}, 1)">❮</button>
                     `;
 
                     thumbnailsHtml = `<div class="thumbnail-bar">`;
@@ -1680,6 +1675,7 @@
         function setImageIndex(productId, index) {
             activeImageIndexes[productId] = index;
             const product = products.find(p => p.id === productId);
+            if (!product) return;
             
             const mainImg = document.getElementById(`img-${productId}`);
             if (mainImg) {
@@ -1788,6 +1784,8 @@
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
             const chosenWeight = selectedWeights[productId] || 1;
             const itemTotal = chosenWeight * product.pricePerKg;
 
@@ -1967,5 +1965,5 @@
 
         renderProducts();
     </script>
-
-</body></html>
+</body>
+</html>
