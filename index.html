@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نجاة كعك ورقة زغوان | Najet Kaak Warka Zaghouan </title>
+    <title>نجاة كعك ورقة زغوان | Najet Kaak Warka Zaghouan Artisanal Pastry</title>
     
     <!-- Google Fonts & EmailJS SDK -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,12 +90,11 @@
             gap: 14px;
         }
 
-        .brand-logo-img {
-            width: 52px;
-            height: 52px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
+        .brand-logo-svg {
+            width: 48px;
+            height: 48px;
+            max-width: 48px;
+            max-height: 48px;
             flex-shrink: 0;
             display: block;
         }
@@ -762,9 +761,11 @@
             header {
                 padding: 0.8rem 1rem;
             }
-            .brand-logo-img {
-                width: 40px;
-                height: 40px;
+            .brand-logo-svg {
+                width: 36px;
+                height: 36px;
+                max-width: 36px;
+                max-height: 36px;
             }
             .brand-title {
                 font-size: 1.35rem;
@@ -1233,7 +1234,11 @@
     <!-- Header -->
     <header>
         <div class="header-right">
-            <img src="logo.jpeg" alt="شعار كعك ورقة زغوان" class="brand-logo-img">
+            <svg class="brand-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" fill="#fef8e7" stroke="#c59b27" stroke-width="3"></circle>
+                <circle cx="50" cy="50" r="32" fill="none" stroke="#9e7916" stroke-width="1.5" stroke-dasharray="4,3"></circle>
+                <circle cx="50" cy="50" r="20" fill="#ffffff" stroke="#c59b27" stroke-width="2"></circle>
+            </svg>
             <div>
                 <div class="brand-title-wrapper">
                     <h1 class="brand-title">كعك ورقة زغوان</h1>
@@ -1306,91 +1311,7 @@
     <!-- Products Grid Container -->
     <div class="container">
         <div class="products-grid" id="products-grid">
-            <!-- Product 1 -->
-            <div class="cake-card" id="card-1789069437583">
-                <div class="cake-img-wrapper" onclick="changeImage(1789069437583, 1)">
-                    <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069437583,  1)">❯</button>
-                    <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069437583, -1)">❮</button>
-                    <img src="images/photo1.jpeg" class="cake-img" id="img-1789069437583" alt="كعك ورقة بالنسري">
-                </div>
-                
-                <div class="thumbnail-bar">
-                    <img src="images/photo1.jpeg" class="thumbnail-img active" onclick="setImageIndex(1789069437583, 0)">
-                    <img src="images/photo2.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 1)">
-                    <img src="images/photo3.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 2)">
-                    <img src="images/photo4.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069437583, 3)">
-                </div>
-                <div class="cake-details">
-                    <h3 class="cake-title">كعك ورقة بالنسري</h3>
-                    <p class="cake-desc">كعك ورقة تقليدي فاخر بماء النسري الطبيعي الأصيل مع أصل الخبرة والتراث.</p>
-                    <div class="price-tag">45.00 د.ت <span>/ كغ</span></div>
-                    
-                    <div class="weight-container">
-                        <div class="weight-header">
-                            <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
-                            <span class="selected-weight-badge" id="badge-1789069437583">1 كغ</span>
-                        </div>
-                        <div class="weight-pills">
-                            <button class="weight-pill" onclick="setWeight(1789069437583, 0.5, 45)">0.5 كغ</button>
-                            <button class="weight-pill active" onclick="setWeight(1789069437583, 1, 45)">1 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069437583, 2, 45)">2 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069437583, 3, 45)">3 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069437583, 5, 45)">5 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069437583, 10, 45)">10 كغ</button>
-                        </div>
-                        <input type="range" class="weight-slider" id="slider-1789069437583" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069437583, this.value, 45)">
-                    </div>
-
-                    <div class="calculated-total">
-                        السعر الإجمالي: <span id="total-1789069437583">45.00</span> د.ت
-                    </div>
-
-                    <button class="btn-primary" onclick="addToCart(1789069437583)">إضافة إلى السلة</button>
-                </div>
-            </div>
-        
-            <!-- Product 2 -->
-            <div class="cake-card" id="card-1789069478525">
-                <div class="cake-img-wrapper" onclick="changeImage(1789069478525, 1)">
-                    <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(1789069478525, 1)">❯</button>
-                    <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(1789069478525, -1)">❮</button>
-                    <img src="images/photo11.jpeg" class="cake-img" id="img-1789069478525" alt="عش البلبل">
-                </div>
-            
-                <div class="thumbnail-bar">
-                    <img src="images/photo11.jpeg" class="thumbnail-img active" onclick="setImageIndex(1789069478525, 0)">
-                    <img src="images/photo22.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 1)">
-                    <img src="images/photo33.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 2)">
-                    <img src="images/photo44.jpeg" class="thumbnail-img" onclick="setImageIndex(1789069478525, 3)">
-                </div>
-                <div class="cake-details">
-                    <h3 class="cake-title">عش البلبل</h3>
-                    <p class="cake-desc">حلويات عش البلبل الفاخرة المحشوة بأجود أنواع الفستق والمكسرات المقرمشة.</p>
-                    <div class="price-tag">65.00 د.ت <span>/ كغ</span></div>
-                    
-                    <div class="weight-container">
-                        <div class="weight-header">
-                            <label>اختر الوزن (0.5 كغ - 10 كغ):</label>
-                            <span class="selected-weight-badge" id="badge-1789069478525">1 كغ</span>
-                        </div>
-                        <div class="weight-pills">
-                            <button class="weight-pill" onclick="setWeight(1789069478525, 0.5, 65)">0.5 كغ</button>
-                            <button class="weight-pill active" onclick="setWeight(1789069478525, 1, 65)">1 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069478525, 2, 65)">2 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069478525, 3, 65)">3 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069478525, 5, 65)">5 كغ</button>
-                            <button class="weight-pill" onclick="setWeight(1789069478525, 10, 65)">10 كغ</button>
-                        </div>
-                        <input type="range" class="weight-slider" id="slider-1789069478525" min="0.5" max="10" step="0.5" value="1" oninput="onSliderWeightChange(1789069478525, this.value, 65)">
-                    </div>
-
-                    <div class="calculated-total">
-                        السعر الإجمالي: <span id="total-1789069478525">65.00</span> د.ت
-                    </div>
-
-                    <button class="btn-primary" onclick="addToCart(1789069478525)">إضافة إلى السلة</button>
-                </div>
-            </div>
+            <!-- المنتجات تُعرض تلقائياً بواسطة JavaScript -->
         </div>
     </div>
 
@@ -1500,19 +1421,54 @@
                 id: 1789069437583,
                 name: "كعك ورقة بالنسري",
                 pricePerKg: 45,
-                images: ["images/photo1.jpeg", "images/photo2.jpeg", "images/photo3.jpeg", "images/photo4.jpeg"],
+                images: ["images/photo1.jpeg", "images/photo11.jpeg", "images/photo111.jpeg", "images/photo1111.jpeg"],
                 description: "كعك ورقة تقليدي فاخر بماء النسري الطبيعي الأصيل مع أصل الخبرة والتراث."
             },
             {
                 id: 1789069478525,
                 name: "عش البلبل",
                 pricePerKg: 65,
-                images: ["images/photo11.jpeg", "images/photo22.jpeg", "images/photo33.jpeg", "images/photo44.jpeg"],
+                images: ["images/photo2.jpeg", "images/photo22.jpeg", "images/photo222.jpeg", "images/photo2222.jpeg"],
                 description: "حلويات عش البلبل الفاخرة المحشوة بأجود أنواع الفستق والمكسرات المقرمشة."
+            },
+            {
+                id: 1789069478526,
+                name: "مقروض أبيض",
+                pricePerKg: 40,
+                images: ["images/photo3.jpeg", "images/photo33.jpeg", "images/photo333.jpeg", "images/photo3333.jpeg"],
+                description: "مقروض أبيض فاخر بعجينة هشة وحشوة لوز غنية، يجمع بين أصالة التراث وأناقة المذاق."
+            },
+            {
+                id: 1789069478527,
+                name: "منيارديز",
+                pricePerKg: 4,
+                images: ["images/photo4.jpeg", "images/photo44.jpeg", "images/photo444.jpeg", "images/photo4444.jpeg"],
+                description: "منيارديز تقليدية فاخرة، بطعم غني وقوام شهي يعبّر عن روعة الحلويات التونسية الأصيلة."
+            },
+            {
+                id: 1789069478528,
+                name: "حلو اللوز",
+                pricePerKg: 90,
+                images: ["images/photo5.jpeg", "images/photo55.jpeg", "images/photo555.jpeg", "images/photo5555.jpeg"],
+                description: "حلو اللوز الفاخر، بمذاق اللوز الأصيل وقوام ناعم يذوب في الفم، من عبق التراث التونسي."
+            },
+            {
+                id: 1789069478529,
+                name: "كعابر قرطاج",
+                pricePerKg: 50,
+                images: ["images/photo6.jpeg", "images/photo66.jpeg", "images/photo666.jpeg", "images/photo6666.jpeg"],
+                description: "كعابر قرطاج الفاخرة، حلوى أصيلة مستوحاة من عراقة قرطاج، بمذاق مميز يروي حكاية من التراث."
+            },
+            {
+                id: 1789069478530,
+                name: "جلجلانية",
+                pricePerKg: 50,
+                images: ["images/photo7.jpeg", "images/photo77.jpeg", "images/photo777.jpeg", "images/photo7777.jpeg"],
+                description: "جلجلانية تونسية فاخرة، مغطاة بالجلجلان المحمص ولمسة من الحلاوة الأصيلة في كل لقمة."
             }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zaghouan_cakes_v6')) || defaultProducts;
+        let products = JSON.parse(localStorage.getItem('zaghouan_cakes_v7')) || defaultProducts;
         let cart = [];
         let selectedWeights = {};
         let activeImageIndexes = {};
@@ -1770,7 +1726,7 @@
 
         function saveAndRender() {
             try {
-                localStorage.setItem('zaghouan_cakes_v6', JSON.stringify(products));
+                localStorage.setItem('zaghouan_cakes_v7', JSON.stringify(products));
             } catch (e) {
                 console.warn("Storage full, rendering directly.");
             }
