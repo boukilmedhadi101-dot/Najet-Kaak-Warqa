@@ -208,6 +208,120 @@
             transform: translateY(0);
         }
 
+        /* Order success animation */
+        .order-success-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(29, 24, 21, 0.45);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 2000;
+            transition: opacity .35s ease, visibility .35s ease;
+        }
+
+        .order-success-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .order-success-card {
+            width: min(430px, 100%);
+            padding: 2.2rem 1.8rem 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, .98);
+            border: 1px solid rgba(197, 155, 39, .45);
+            border-radius: 24px;
+            box-shadow: 0 24px 70px rgba(33, 25, 21, .22);
+            transform: translateY(22px) scale(.92);
+            transition: transform .45s cubic-bezier(.175,.885,.32,1.275);
+        }
+
+        .order-success-overlay.show .order-success-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .success-check-wrap {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), #fffdf7);
+            box-shadow: 0 10px 30px rgba(197, 155, 39, .2);
+            animation: successPop .55s cubic-bezier(.175,.885,.32,1.275) both;
+        }
+
+        .success-check {
+            width: 58px;
+            height: 58px;
+            overflow: visible;
+        }
+
+        .success-circle {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            stroke-dasharray: 151;
+            stroke-dashoffset: 151;
+            animation: drawSuccessCircle .65s ease forwards .1s;
+        }
+
+        .success-check-path {
+            fill: none;
+            stroke: #526443;
+            stroke-width: 3.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 38;
+            stroke-dashoffset: 38;
+            animation: drawSuccessCheck .45s ease forwards .55s;
+        }
+
+        .order-success-card h3 {
+            color: var(--accent);
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 900;
+            margin-bottom: .45rem;
+        }
+
+        .order-success-card p {
+            color: var(--text-muted);
+            font-size: .95rem;
+            line-height: 1.8;
+        }
+
+        @keyframes successPop {
+            0% { transform: scale(.55) rotate(-8deg); opacity: 0; }
+            70% { transform: scale(1.08) rotate(2deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+
+        @keyframes drawSuccessCircle {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes drawSuccessCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .order-success-card, .success-check-wrap, .success-circle, .success-check-path {
+                animation: none !important;
+                transition: none !important;
+            }
+            .success-circle, .success-check-path { stroke-dashoffset: 0; }
+        }
+
         /* Hero Section */
         .hero {
             text-align: center;
@@ -381,8 +495,9 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .slider-btn.prev { left: 10px; }
-        .slider-btn.next { right: 10px; }
+        /* RTL gallery: previous on the right, next on the left */
+        .slider-btn.prev { right: 10px; }
+        .slider-btn.next { left: 10px; }
 
         .thumbnail-bar {
             display: flex;
@@ -1072,6 +1187,20 @@
     <!-- Notification Toast -->
     <div class="toast-notification" id="toast"></div>
 
+    <!-- Order success animation -->
+    <div class="order-success-overlay" id="order-success-overlay" aria-hidden="true">
+        <div class="order-success-card" role="status" aria-live="polite">
+            <div class="success-check-wrap">
+                <svg class="success-check" viewBox="0 0 52 52" aria-hidden="true">
+                    <circle class="success-circle" cx="26" cy="26" r="24"></circle>
+                    <path class="success-check-path" d="M14 27.5 L22 35 L39 17.5"></path>
+                </svg>
+            </div>
+            <h3>تم إرسال طلبك بنجاح!</h3>
+            <p>شكراً لثقتكم بنا، سنتواصل معكم قريباً لتأكيد الطلب.</p>
+        </div>
+    </div>
+
     <!-- Animated contact information bar -->
     <section class="contact-ticker" aria-label="معلومات التواصل">
         <div class="contact-ticker-track">
@@ -1548,9 +1677,10 @@
                 let thumbnailsHtml = '';
 
                 if (showControls) {
+                    // In RTL layout: previous is on the right, next is on the left.
                     navButtons = `
-                        <button type="button" class="slider-btn prev" onclick="event.stopPropagation(); changeImage(${product.id}, -1)">❯</button>
-                        <button type="button" class="slider-btn next" onclick="event.stopPropagation(); changeImage(${product.id}, 1)">❮</button>
+                        <button type="button" class="slider-btn prev" aria-label="الصورة السابقة" title="الصورة السابقة" onclick="event.stopPropagation(); changeImage(${product.id}, -1)">❯</button>
+                        <button type="button" class="slider-btn next" aria-label="الصورة التالية" title="الصورة التالية" onclick="event.stopPropagation(); changeImage(${product.id}, 1)">❮</button>
                     `;
 
                     thumbnailsHtml = `<div class="thumbnail-bar">`;
@@ -1821,6 +1951,21 @@
             modal.style.display = forceOpen ? 'block' : (modal.style.display === 'block' ? 'none' : 'block');
         }
 
+        function showOrderSuccess() {
+            const overlay = document.getElementById('order-success-overlay');
+            if (!overlay) return;
+
+            overlay.classList.remove('show');
+            void overlay.offsetWidth;
+            overlay.classList.add('show');
+            overlay.setAttribute('aria-hidden', 'false');
+
+            setTimeout(() => {
+                overlay.classList.remove('show');
+                overlay.setAttribute('aria-hidden', 'true');
+            }, 3600);
+        }
+
         function sendOrderDirectEmail(e) {
             e.preventDefault();
             if (cart.length === 0) {
@@ -1845,7 +1990,7 @@
 
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
                 .then(function() {
-                    alert("تم إرسال طلبك بنجاح! سنتصل بك قريباً لتأكيد التسليم.");
+                    showOrderSuccess();
                     cart = [];
                     updateCartUI();
                     toggleCart();
